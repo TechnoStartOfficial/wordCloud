@@ -17,7 +17,7 @@ def filter_string(inputString):
                 cleanList[j]=""
     return " ".join(cleanList)
 f = open("text.txt","r").read()
-wc = WordCloud()
+wc = WordCloud(background_color="white",max_font_size=50,max_words=100)
 wc.generate(filter_string(f))
 plt.imshow(wc, interpolation="bilinear")
 plt.axis('off')
