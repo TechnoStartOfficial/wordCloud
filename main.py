@@ -1,3 +1,5 @@
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 def filter_string(inputString):
     outputString = ""
     for i in inputString:
@@ -18,3 +20,4 @@ def text_count(text):
             result[letter] = 0
         result[letter] += 1
     return result
+f = open("text.txt","r").read()
