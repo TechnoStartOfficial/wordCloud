@@ -10,10 +10,15 @@ def filter_string(inputString):
         "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its", "they", "them", \
         "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
         "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
-        "all", "any", "both" ," ", "1","2","3","4","5","6","7","8","9", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just"]
+        "all", "any", "both" , "1","2","3","4","5","6","7","8","9", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just"]
     for i in unwantedChars:
         for j in range(0,len(cleanList)):
             if i == cleanList[j]:
                 cleanList[j]=""
     return " ".join(cleanList)
 f = open("text.txt","r").read()
+wc = WordCloud()
+wc.generate(filter_string(f))
+plt.imshow(wc, interpolation="bilinear")
+plt.axis('off')
+plt.show()
