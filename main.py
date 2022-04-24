@@ -1,6 +1,6 @@
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-def filter_string(inputString):
+from wordcloud import WordCloud 
+import matplotlib.pyplot as plt # To Display Our WordCloud
+def filter_string(inputString): # This Function Removes Unwanted Charater From String
     cleanString=""
     for i in inputString:
         if i.isalnum() or i == " ":
@@ -15,9 +15,9 @@ def filter_string(inputString):
         for j in range(0,len(cleanList)):
             if i == cleanList[j]:
                 cleanList[j]=""
-    return " ".join(cleanList)
-f = open("text.txt","r").read()
-wc = WordCloud(background_color="white",max_font_size=50,max_words=100)
+    return " ".join(cleanList)  # This Join List Into Strings
+f = open("text.txt","r").read() # Used To Read text Files
+wc = WordCloud(background_color="white",max_font_size=50,max_words=100) # Creating image of WordCloud Class
 wc.generate(filter_string(f))
 plt.imshow(wc, interpolation="bilinear")
 plt.axis('off')
