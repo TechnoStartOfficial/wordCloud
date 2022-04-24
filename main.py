@@ -15,14 +15,5 @@ def filter_string(inputString):
         for j in range(0,len(cleanList)):
             if i == cleanList[j]:
                 cleanList[j]=""
-    return cleanList
-def text_count(text):
-    result={}
-    for letter in text:
-        if letter not in result:
-            result[letter] = 0
-        result[letter] += 1
-    return result
+    return " ".join(cleanList)
 f = open("text.txt","r").read()
-
-
